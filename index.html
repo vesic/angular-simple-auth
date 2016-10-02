@@ -3,8 +3,8 @@
     <div id="menu">
         <a href="#/">home</a>
         <a href="#/secret">secret</a>
-        <a ng-hide="loggedIn" href="#/login">login</a>
-        <a ng-show="loggedIn" href="" ng-click='logout($event)'>logout</a>
+        <a ng-hide="user" href="#/login">login</a>
+        <a ng-show="user" href="" ng-click='logout($event)'>logout</a>
     </div>
     <div ng-view></div>
 </body>

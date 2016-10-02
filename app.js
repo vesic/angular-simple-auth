@@ -20,17 +20,17 @@ angular.module('app', ['ngRoute', 'firebase', 'app.auth'])
           }
         }
       })
-      .otherwise('/')
+      .otherwise('/');
   })
 
   .controller('HomeCtrl', function($scope, Auth, $window) {
     // log status
-    $scope.loggedIn = Auth.isUserLoggedIn();
+    $scope.user = Auth.isUserLoggedIn();
 
     $scope.logout = function($event) {
       $event.preventDefault();
       Auth.logout(function() {
-        $window.location.href = '/'
+        $window.location.href = '/';
       });
     }
   })
@@ -46,9 +46,9 @@ angular.module('app', ['ngRoute', 'firebase', 'app.auth'])
       }
       else {
         Auth.login($scope.user.email, $scope.user.password,
-          function() {
+          function(authData) {
             $scope.$apply(function() {
-              $window.location.href = '/'
+              $window.location.href = '/';
             })
           }, function() {
             $scope.$apply(function() {
@@ -61,7 +61,7 @@ angular.module('app', ['ngRoute', 'firebase', 'app.auth'])
   })
 
   .controller('SecretCtrl', function($scope, $location, isUserLoggedIn) {
-    // is not authorized redirect
+    // if not authorized redirect
     if (!isUserLoggedIn) {
       $location.path('login')
     }

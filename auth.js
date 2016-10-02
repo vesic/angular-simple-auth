@@ -10,7 +10,7 @@ angular.module('app.auth', [])
     function isUserLoggedIn() {
       if (authData) {
         console.log("User " + authData.uid + " is logged in with " + authData.provider);
-        return true;
+        return authData;
     } else {
         console.log("User is logged out.");
         return false;
@@ -28,7 +28,7 @@ angular.module('app.auth', [])
           err();
         } else {
           console.log("Authenticated successfully with payload:", authData);
-          success();
+          success(authData);
         }
       }); 
     }

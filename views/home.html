@@ -1,1 +1,9 @@
 <h1>Home.html</h1>
+
+<div ng-if="user">
+    <div>User name: <strong>{{user.password.email}}</strong></div>
+    <div>User profile image:</div>
+    <div><img ng-src="{{user.password.profileImageURL}}" alt=""></div>
+</div>
+
+<div ng-if="!user">Log in to display user info!</div>
