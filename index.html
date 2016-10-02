@@ -1,0 +1,19 @@
+
+<body ng-app="app" ng-controller="HomeCtrl">
+    <div id="menu">
+        <a href="#/">home</a>
+        <a href="#/secret">secret</a>
+        <a ng-hide="loggedIn" href="#/login">login</a>
+        <a ng-show="loggedIn" href="" ng-click='logout($event)'>logout</a>
+    </div>
+    <div ng-view></div>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.js"></script>
+
+<script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+<script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
+
+<script src="app.js"></script>
+<script src="auth.js"></script>
